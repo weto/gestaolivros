@@ -1,0 +1,61 @@
+[{
+    "id": 1,
+    "nome": "livro 1",
+    "autor": {
+        "id": 1,
+        "nome": "Autor 1"
+    },
+    "editora": {
+        "id": 1,
+        "nome": "Editora 1"
+    },
+    "pedido": [
+        {
+            "id": 1,
+            "codigo": "cod123456",
+            "situacao": "Aberto",
+            "cliente": {
+                "id": 1,
+                "nome": "Cliente 1"
+            }
+        }, {
+            "id": 2,
+            "codigo": "cod123455",
+            "situacao": "Aberto",
+            "cliente": {
+                "id": 2,
+                "nome": "Cliente 2"
+            }
+        }
+    ]
+}, {
+    "id": 2,
+    "nome": "livro 2",
+    "autor": {
+        "id": 1,
+        "nome": "Autor 1"
+    },
+    "editora": {
+        "id": 1,
+        "nome": "Editora 1"
+    },
+    "pedido": [
+        {
+            "id": 2,
+            "codigo": "cod1234",
+            "situacao": "Aberto",
+            "cliente": {
+                "id": 3,
+                "nome": "Cliente 2"
+            }
+        }, {
+            "id": 3,
+            "codigo": "cod123444",
+            "situacao": "Aberto",
+            "cliente": {
+                "id": 4,
+                "nome": "Cliente 2"
+            }
+        }
+    ]
+}]

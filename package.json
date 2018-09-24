@@ -1,0 +1,43 @@
+{
+  "name": "vsm-api-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start_development": "NODE_ENV=development PORT=3003 nodemon server.js",
+    "start_homologation": "NODE_ENV=homolog PORT=3003 node server.js",
+    "start_production": "NODE_ENV=production PORT=8080 node server.js",
+    "integration_test": "NODE_ENV=test PORT=3001 node ./tests/integration/user.test.js | tap-spec",
+    "unit_test": "NODE_ENV=test PORT=3001 node ./tests/unit/user.test.js | tap-spec"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-validator": "^5.0.1",
+    "http-status": "^1.0.1",
+    "i18n": "^0.8.3",
+    "jsonwebtoken": "^8.1.1",
+    "log": "^1.4.0",
+    "mongoose": "^4.8.5",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.1",
+    "request": "^2.83.0",
+    "sequelize": "^4.33.4",
+    "sequelize-auto": "^0.4.29",
+    "sequelize-cli": "^4.0.0",
+    "store": "^2.0.12"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^5.0.1",
+    "supertest": "^3.0.0",
+    "testdouble": "^3.5.1",
+    "tap-spec": "^2.2.1",
+    "tape": "^3.5.0"
+  }
+}

@@ -1,0 +1,12 @@
+var express = require('express');
+var app = express();
+var i18n = require('./config/i18n')();
+
+app.use(i18n.init);
+
+console.log("Versão APIVSM: "+i18n.__("versao"));
+
+var livros = require('./controller/LivrosController');
+app.use('/api/v1/livros', livros);
+
+module.exports = app;

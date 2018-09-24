@@ -4,11 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start_development": "NODE_ENV=development PORT=3003 nodemon server.js",
-    "start_homologation": "NODE_ENV=homolog PORT=3003 node server.js",
-    "start_production": "NODE_ENV=production PORT=8080 node server.js",
-    "integration_test": "NODE_ENV=test PORT=3001 node ./tests/integration/user.test.js | tap-spec",
-    "unit_test": "NODE_ENV=test PORT=3001 node ./tests/unit/user.test.js | tap-spec"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",

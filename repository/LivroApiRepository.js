@@ -90,3 +90,16 @@ exports.findComentarios = function(livro, req, res){
 	    });
     });
 };
+
+exports.findNome = function(livro, req, res){
+	return new Promise(function(resolve, reject ) { 
+		dao.findNome(livro)
+		.then(livros => {
+			resolve(livros);
+		}).catch(err => {
+			reject(err);
+	    });
+    });
+};
+
+

@@ -5,6 +5,10 @@
         "id": 1,
         "nome": "Autor 1"
     },
+    "comentario": {
+        "id": 1,
+        "nome": "Comentario 1"
+    },
     "editora": {
         "id": 1,
         "nome": "Editora 1"
@@ -33,11 +37,15 @@
     "nome": "livro 2",
     "autor": {
         "id": 1,
-        "nome": "Autor 1"
+        "nome": "Autor 2"
+    },
+    "comentario": {
+        "id": 2,
+        "nome": "Comentario 2"
     },
     "editora": {
         "id": 1,
-        "nome": "Editora 1"
+        "nome": "Editora 2"
     },
     "pedido": [
         {

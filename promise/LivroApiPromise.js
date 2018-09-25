@@ -43,9 +43,9 @@ exports.delete = function (livro) {
         });
     });
 }
-exports.findById = function () {
+exports.findById = function (livro) {
     return new Promise(function( resolve, reject ) { 
-        repository.findById()
+        repository.findById(livro)
         .then(livros => {
             resolve(livros);
         }).catch(err => {
@@ -65,9 +65,31 @@ exports.findEditora = function () {
     });
 }
 
-exports.findAutores = function () {
+exports.findAutores = function (livro) {
     return new Promise(function( resolve, reject ) { 
-        repository.findAutores()
+        repository.findAutores(livro)
+        .then(livros => {
+            resolve(livros);
+        }).catch(err => {
+            reject(err);
+        });
+    });
+}
+
+exports.findComentarios = function (livro) {
+    return new Promise(function( resolve, reject ) { 
+        repository.findComentarios(livro)
+        .then(livros => {
+            resolve(livros);
+        }).catch(err => {
+            reject(err);
+        });
+    });
+}
+
+exports.findNome = function (livro) {
+    return new Promise(function( resolve, reject ) { 
+        repository.findNome(livro)
         .then(livros => {
             resolve(livros);
         }).catch(err => {

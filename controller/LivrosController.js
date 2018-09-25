@@ -33,7 +33,7 @@ router.post('/', function (req, res) {
 });
 
 router.put('/:idLivro', function (req, res) {
-  service.edit(req.body, req, res)
+  service.edit(req.params, req, res)
   .then(livros => {
     res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: livros });
   }).catch(err => {
@@ -45,6 +45,18 @@ router.put('/:idLivro', function (req, res) {
 
 router.delete('/:idLivro', function (req, res) {
   service.delete(req.body, req, res)
+  .then(livros => {
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: livros });
+  }).catch(err => {
+    log.info("#### ROTA / LIVRO ####");
+    log.error(err);
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, message: err});
+  });
+});
+
+router.get('/:idLivro', function (req, res) {
+  console.log(req.param);
+  service.findById(req.param, req, res)
   .then(livros => {
     res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: livros });
   }).catch(err => {

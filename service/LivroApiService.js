@@ -44,6 +44,16 @@ exports.delete = function(livro, req, res) {
     });
 }
 
+exports.findById = function(livro, req, res) {
+	return new Promise( function(resolve, reject ) { 
+        promise.findById(livro, req, res)
+        .then(livros => {
+            resolve(livros);
+        }).catch(err => {
+            reject(err);
+        });
+    });
+}
 exports.findEditora = function(livro, req, res) {
 	return new Promise( function(resolve, reject ) { 
         promise.findEditora(livro, req, res)

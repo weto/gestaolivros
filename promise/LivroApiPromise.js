@@ -43,6 +43,16 @@ exports.delete = function (livro) {
         });
     });
 }
+exports.findById = function () {
+    return new Promise(function( resolve, reject ) { 
+        repository.findById()
+        .then(livros => {
+            resolve(livros);
+        }).catch(err => {
+            reject(err);
+        });
+    });
+}
 
 exports.findEditora = function () {
     return new Promise(function( resolve, reject ) { 

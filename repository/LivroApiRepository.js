@@ -47,6 +47,17 @@ exports.delete = function(livro, req, res){
     });
 };
 
+exports.findById = function(livro, req, res){
+	return new Promise(function(resolve, reject ) { 
+		dao.findById(livro)
+		.then(livros => {
+			resolve(livros);
+		}).catch(err => {
+			reject(err);
+	    });
+    });
+};
+
 exports.findEditora = function(livro, req, res){
 	return new Promise(function(resolve, reject ) { 
 		dao.findEditora(livro)

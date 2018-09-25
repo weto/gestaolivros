@@ -12,8 +12,74 @@ router.use(bodyParser.json());
 
 router.get('/', function (req, res) {
   service.findAll(req.body, req, res)
-  .then(usuarios => {
-    res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: usuarios });
+  .then(livros => {
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: livros });
+  }).catch(err => {
+    log.info("#### ROTA / LIVRO ####");
+    log.error(err);
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, message: err});
+  });
+});
+
+router.post('/', function (req, res) {
+  service.save(req.body, req, res)
+  .then(livros => {
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: livros });
+  }).catch(err => {
+    log.info("#### ROTA / LIVRO ####");
+    log.error(err);
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, message: err});
+  });
+});
+
+router.put('/:idLivro', function (req, res) {
+  service.edit(req.body, req, res)
+  .then(livros => {
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: livros });
+  }).catch(err => {
+    log.info("#### ROTA / LIVRO ####");
+    log.error(err);
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, message: err});
+  });
+});
+
+router.delete('/:idLivro', function (req, res) {
+  service.delete(req.body, req, res)
+  .then(livros => {
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: livros });
+  }).catch(err => {
+    log.info("#### ROTA / LIVRO ####");
+    log.error(err);
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, message: err});
+  });
+});
+
+router.get('/:idLivro/autores', function (req, res) {
+  service.findAutores(req.body, req, res)
+  .then(livros => {
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: livros });
+  }).catch(err => {
+    log.info("#### ROTA / LIVRO ####");
+    log.error(err);
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, message: err});
+  });
+});
+
+router.get('/:idLivro/editoras', function (req, res) {
+  service.findEditora(req.body, req, res)
+  .then(livros => {
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: livros });
+  }).catch(err => {
+    log.info("#### ROTA / LIVRO ####");
+    log.error(err);
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, message: err});
+  });
+});
+
+router.get('/:idLivro/comentarios', function (req, res) {
+  service.findComentarios(req.body, req, res)
+  .then(livros => {
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: livros });
   }).catch(err => {
     log.info("#### ROTA / LIVRO ####");
     log.error(err);

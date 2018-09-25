@@ -9,4 +9,7 @@ console.log("Versão APIVSM: "+i18n.__("versao"));
 var livros = require('./controller/LivrosController');
 app.use('/api/v1/livros', livros);
 
+var autores = require('./controller/AutoresController');
+app.use('/api/v1/autores', autores);
+
 module.exports = app;

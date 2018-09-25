@@ -36,7 +36,7 @@
     "id": 2,
     "nome": "livro 2",
     "autor": {
-        "id": 1,
+        "id": 2,
         "nome": "Autor 2"
     },
     "comentario": {

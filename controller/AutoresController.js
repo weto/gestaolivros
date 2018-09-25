@@ -12,10 +12,10 @@ router.use(bodyParser.json());
 
 router.get('/', function (req, res) {
   service.findAll(req.body, req, res)
-  .then(livros => {
-    res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: livros });
+  .then(autores => {
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, autores: autores });
   }).catch(err => {
-    log.info("#### ROTA / LIVRO ####");
+    log.info("#### ROTA / AUTOR ####");
     log.error(err);
     res.status(httpStatus.OK).json({ status: httpStatus.OK, message: err});
   });
@@ -23,80 +23,80 @@ router.get('/', function (req, res) {
 
 router.post('/', function (req, res) {
   service.save(req.body, req, res)
-  .then(livros => {
-    res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: livros });
+  .then(autores => {
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, autores: autores });
   }).catch(err => {
-    log.info("#### ROTA / LIVRO ####");
+    log.info("#### ROTA / AUTOR ####");
     log.error(err);
     res.status(httpStatus.OK).json({ status: httpStatus.OK, message: err});
   });
 });
 
-router.put('/:idLivro', function (req, res) {
+router.put('/:idAutor', function (req, res) {
   const params = {};
   params.idLivro = req.params.idLivro;
   params.nome = req.body.nome;
 
   service.edit(params, req, res)
-  .then(livros => {
-    res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: livros });
+  .then(autores => {
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, autores: autores });
   }).catch(err => {
-    log.info("#### ROTA / LIVRO ####");
+    log.info("#### ROTA / AUTOR ####");
     log.error(err);
     res.status(httpStatus.OK).json({ status: httpStatus.OK, message: err});
   });
 });
 
-router.delete('/:idLivro', function (req, res) {
+router.delete('/:idAutor', function (req, res) {
   service.delete(req.params, req, res)
-  .then(livros => {
-    res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: livros });
+  .then(autores => {
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, autores: autores });
   }).catch(err => {
-    log.info("#### ROTA / LIVRO ####");
+    log.info("#### ROTA / AUTOR ####");
     log.error(err);
     res.status(httpStatus.OK).json({ status: httpStatus.OK, message: err});
   });
 });
 
-router.get('/:idLivro', function (req, res) {
+router.get('/:idAutor', function (req, res) {
   service.findById(req.params, req, res)
-  .then(livros => {
-    res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: livros });
+  .then(autores => {
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, autores: autores });
   }).catch(err => {
-    log.info("#### ROTA / LIVRO ####");
+    log.info("#### ROTA / AUTOR ####");
     log.error(err);
     res.status(httpStatus.OK).json({ status: httpStatus.OK, message: err});
   });
 });
 
-router.get('/:idLivro/autores', function (req, res) {
-  service.findAutores(req.params, req, res)
-  .then(livros => {
-    res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: livros });
+router.get('/:idAutor/livros', function (req, res) {
+  service.findLivros(req.params, req, res)
+  .then(autores => {
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, autores: autores });
   }).catch(err => {
-    log.info("#### ROTA / LIVRO ####");
+    log.info("#### ROTA / AUTOR ####");
     log.error(err);
     res.status(httpStatus.OK).json({ status: httpStatus.OK, message: err});
   });
 });
 
-router.get('/:idLivro/editoras', function (req, res) {
+router.get('/:idAutor/editoras', function (req, res) {
   service.findEditora(req.params, req, res)
-  .then(livros => {
-    res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: livros });
+  .then(autores => {
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, autores: autores });
   }).catch(err => {
-    log.info("#### ROTA / LIVRO ####");
+    log.info("#### ROTA / AUTOR ####");
     log.error(err);
     res.status(httpStatus.OK).json({ status: httpStatus.OK, message: err});
   });
 });
 
-router.get('/:idLivro/comentarios', function (req, res) {
+router.get('/:idAutor/comentarios', function (req, res) {
   service.findComentarios(req.params, req, res)
-  .then(livros => {
-    res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: livros });
+  .then(autores => {
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, autores: autores });
   }).catch(err => {
-    log.info("#### ROTA / LIVRO ####");
+    log.info("#### ROTA / AUTOR ####");
     log.error(err);
     res.status(httpStatus.OK).json({ status: httpStatus.OK, message: err});
   });
@@ -104,10 +104,10 @@ router.get('/:idLivro/comentarios', function (req, res) {
 
 router.get('/pesquisa/:nome?', function (req, res) {
   service.findNome(req.params, req, res)
-  .then(livros => {
-    res.status(httpStatus.OK).json({ status: httpStatus.OK, livros: livros });
+  .then(autores => {
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, autores: autores });
   }).catch(err => {
-    log.info("#### ROTA / LIVRO ####");
+    log.info("#### ROTA / AUTOR ####");
     log.error(err);
     res.status(httpStatus.OK).json({ status: httpStatus.OK, message: err});
   });

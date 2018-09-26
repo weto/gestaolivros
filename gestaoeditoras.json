@@ -1,0 +1,35 @@
+[{
+    "id": 1,
+    "nome": "Editora 1",
+    "autor": [{
+        "id": 1,
+        "nome": "Autor 1"
+    },{
+        "id": 2,
+        "nome": "Autor 2"
+    }],
+    "livro": [{
+        "id": 1,
+        "nome": "Livro 1"
+    },{
+        "id": 2,
+        "nome": "Livro 2"
+    }]
+},{
+    "id": 2,
+    "nome": "Editora 2",
+    "autor": [{
+        "id": 3,
+        "nome": "Autor 3"
+    },{
+        "id": 4,
+        "nome": "Autor 4"
+    }],
+    "livro": [{
+        "id": 5,
+        "nome": "Livro 5"
+    },{
+        "id": 6,
+        "nome": "Livro 6"
+    }]
+}]

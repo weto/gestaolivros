@@ -12,4 +12,7 @@ app.use('/api/v1/livros', livros);
 var autores = require('./controller/AutoresController');
 app.use('/api/v1/autores', autores);
 
+var editores = require('./controller/EditoraController');
+app.use('/api/v1/editoras', editores);
+
 module.exports = app;

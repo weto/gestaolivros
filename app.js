@@ -18,4 +18,7 @@ app.use('/api/v1/editoras', editores);
 var clientes = require('./controller/ClientesController');
 app.use('/api/v1/clientes', clientes);
 
+var carrinho = require('./controller/CarrinhoController');
+app.use('/api/v1/carrinho', carrinho);
+
 module.exports = app;

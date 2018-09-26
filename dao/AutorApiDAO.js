@@ -55,7 +55,6 @@ exports.edit = function(autor) {
 
 exports.delete = function(autor) {
 	return new Promise(function(resolve, reject) {
-		gestaoAutores.re
 		resolve(gestaoAutores);
 	});
 }

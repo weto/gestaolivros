@@ -15,4 +15,7 @@ app.use('/api/v1/autores', autores);
 var editores = require('./controller/EditoraController');
 app.use('/api/v1/editoras', editores);
 
+var clientes = require('./controller/ClientesController');
+app.use('/api/v1/clientes', clientes);
+
 module.exports = app;

@@ -1,0 +1,47 @@
+[{
+    "id": 1,
+    "nome": "Cliente 1",
+    "pedido": [        {
+        "id": 1,
+        "codigo": "cod123456",
+        "situacao": "Aberto",
+        "livro": [{
+            "id": 1,
+            "nome": "Livro 1"
+        }]
+    },{
+        "id": 2,
+        "codigo": "cod123455",
+        "situacao": "Aberto",
+        "livro": [{
+            "id": 2,
+            "nome": "Livro 2"
+        },{
+            "id": 3,
+            "nome": "Livro 3"
+        }]
+    }]
+},{
+    "id": 2,
+    "nome": "Cliente 2",
+    "pedido": [        {
+        "id": 1,
+        "codigo": "cod123456",
+        "situacao": "Aberto",
+        "livro": [{
+            "id": 5,
+            "nome": "Livro 5"
+        }]
+    },{
+        "id": 23,
+        "codigo": "cod123455",
+        "situacao": "Aberto",
+        "livro": [{
+            "id": 7,
+            "nome": "Livro 7"
+        },{
+            "id": 9,
+            "nome": "Livro 9"
+        }]
+    }]
+}]

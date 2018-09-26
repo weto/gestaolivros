@@ -55,7 +55,6 @@ exports.edit = function(editora) {
 
 exports.delete = function(editora) {
 	return new Promise(function(resolve, reject) {
-		gestaoEditoras.re
 		resolve(gestaoEditoras);
 	});
 }

@@ -59,7 +59,6 @@ exports.edit = function(livro) {
 
 exports.delete = function(livro) {
 	return new Promise(function(resolve, reject) {
-		gestaoLivros.re
 		resolve(gestaoLivros);
 	});
 }

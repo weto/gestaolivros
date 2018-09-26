@@ -21,4 +21,7 @@ app.use('/api/v1/clientes', clientes);
 var carrinho = require('./controller/CarrinhoController');
 app.use('/api/v1/carrinho', carrinho);
 
+var pedidos = require('./controller/PedidosController');
+app.use('/api/v1/pedidos', pedidos);
+
 module.exports = app;

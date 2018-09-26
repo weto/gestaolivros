@@ -1,0 +1,17 @@
+[{
+    "id": 1,
+    "codigo": "cod123456",
+    "situacao": "Aberto",
+    "cliente": {
+        "id": 1,
+        "nome": "Cliente 1"
+    }
+},{
+    "id": 2,
+    "codigo": "cod1147852",
+    "situacao": "Aberto",
+    "cliente": {
+        "id": 1,
+        "nome": "Cliente 2"
+    }
+}]

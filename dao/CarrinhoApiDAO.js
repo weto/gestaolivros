@@ -7,7 +7,7 @@ let idDinamico = 2;
 
 exports.findLivros = function() {
 	return new Promise(function(resolve, reject) {
-		resolve(gestaoCarrinho[0].livro);
+		resolve(gestaoCarrinho.livro);
 	});
 }
 
@@ -17,7 +17,7 @@ exports.adicionar = function(carrinho) {
 			"id": ++idDinamico,
 			"nome": "Livro ".concat(idDinamico),
 		};
-		if(gestaoCarrinho[0].livro.push(novoItem)) {
+		if(gestaoCarrinho.livro.push(novoItem)) {
 			resolve('carrinho adicionado com sucesso');
 		} else {
 			reject('Erro ao cadastrar carrinho');

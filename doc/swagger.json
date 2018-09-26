@@ -1,0 +1,1144 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "",
+    "version" : "1.0.0",
+    "title" : "API para sistema de gestão de livros",
+    "contact" : {
+      "email" : "weto.jc@gmail.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/weto/livros/1.0.0",
+  "tags" : [ {
+    "name" : "livro",
+    "description" : "Chamadas de serviços de livros"
+  }, {
+    "name" : "autor",
+    "description" : "Chamadas de serviços de Autores"
+  }, {
+    "name" : "editora",
+    "description" : "Chamadas de serviços de Editores"
+  }, {
+    "name" : "cliente",
+    "description" : "Chamadas de serviços de clientes"
+  }, {
+    "name" : "carrinho de compra",
+    "description" : "Chamadas de serviços do carrinho"
+  }, {
+    "name" : "pedido",
+    "description" : "Chamadas de serviços de pedidos"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/livros" : {
+      "get" : {
+        "tags" : [ "livro" ],
+        "summary" : "listagem de todos os livros",
+        "description" : "Listar todos os livros.\n",
+        "operationId" : "listagemLivros",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de todos os livros.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Livro"
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "livro" ],
+        "summary" : "cadastro de livro",
+        "description" : "cadastrar um livro no sistema",
+        "operationId" : "cadastroLivro",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "nome",
+          "description" : "Nome do Livro",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Livro"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Livro criado com sucesso"
+          },
+          "400" : {
+            "description" : "campos inválidos"
+          },
+          "409" : {
+            "description" : "livro já existe"
+          }
+        }
+      }
+    },
+    "/livros/{idLivro}" : {
+      "get" : {
+        "tags" : [ "livro" ],
+        "summary" : "Pesquisa de livro pelo id",
+        "description" : "Pesquisa de livro pelo Id.\n",
+        "operationId" : "pesquisaLivroId",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "idLivro",
+          "in" : "path",
+          "description" : "Pesquisa de livro pelo ID",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de livro pelo id.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Livro"
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "livro" ],
+        "summary" : "edição de livro",
+        "description" : "editar um livro no sistema",
+        "operationId" : "edicaoLivro",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "nome",
+          "description" : "Nome do Livro",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Livro"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Livro alterado com sucesso"
+          },
+          "400" : {
+            "description" : "campos inválidos"
+          },
+          "409" : {
+            "description" : "livro já existe"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "livro" ],
+        "summary" : "exclusão de livro",
+        "description" : "excluir um livro no sistema",
+        "operationId" : "excluirLivro",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "idLivro",
+          "description" : "Id do Livro",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Livro"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Livro excluído com sucesso"
+          },
+          "400" : {
+            "description" : "campos inválidos"
+          }
+        }
+      }
+    },
+    "/livros/{idLivro}/autores" : {
+      "get" : {
+        "tags" : [ "livro" ],
+        "summary" : "listagem de autores a partir do livro",
+        "description" : "Listar os autores a partir do livro.\n",
+        "operationId" : "listagemLivroAutor",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "idLivro",
+          "in" : "path",
+          "description" : "Pesquisa de autores por livro",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de todos os livros.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Livro"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/livros/{idLivro}/editoras" : {
+      "get" : {
+        "tags" : [ "livro" ],
+        "summary" : "listagem de editora a partir do livro",
+        "description" : "Listar a editora a partir do livro.\n",
+        "operationId" : "listagemLivroEditor",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "idLivro",
+          "in" : "path",
+          "description" : "informar o id do livro para buscar a editora",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de Autor por livro.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Livro"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/livros/{idLivro}/comentarios" : {
+      "get" : {
+        "tags" : [ "livro" ],
+        "summary" : "listagem de comentarios a partir do livro",
+        "description" : "Listar os comentários a partir do livro.\n",
+        "operationId" : "listagemLivroComentario",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "idLivro",
+          "in" : "path",
+          "description" : "informar o id do livro para buscar os comentários",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de comentário por livro.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Livro"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/livros/p?nome=Livro1" : {
+      "get" : {
+        "tags" : [ "livro" ],
+        "summary" : "pesquisa de livro por nome ou id",
+        "description" : "Pesquisar o livro por nome ou id.\n",
+        "operationId" : "pesquisaLivro",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "nome",
+          "in" : "query",
+          "description" : "informar o nome do livro que deseja pesquisar",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de comentário por livro.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Livro"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/autores" : {
+      "get" : {
+        "tags" : [ "autor" ],
+        "summary" : "listagem de todos os autores",
+        "description" : "Listar todos os autores.\n",
+        "operationId" : "listagemAutores",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de todos os autores.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Autor"
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "autor" ],
+        "summary" : "cadastro de autor",
+        "description" : "cadastrar um autor no sistema",
+        "operationId" : "cadastroAutor",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "nome",
+          "description" : "Nome do Autor",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Autor"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Autor criado com sucesso"
+          },
+          "400" : {
+            "description" : "campos inválidos"
+          },
+          "409" : {
+            "description" : "autor já existe"
+          }
+        }
+      }
+    },
+    "/autores/{idAutor}" : {
+      "get" : {
+        "tags" : [ "autor" ],
+        "summary" : "Pesquisa de autor pelo id",
+        "description" : "Pesquisa de autor pelo Id.\n",
+        "operationId" : "pesquisaAutorId",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "idAutor",
+          "in" : "path",
+          "description" : "Pesquisa de autor pelo ID",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de autor pelo id.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Autor"
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "autor" ],
+        "summary" : "edição de autor",
+        "description" : "editar um autor no sistema",
+        "operationId" : "edicaoAutor",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "nome",
+          "description" : "Nome do Autor",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Livro"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Autor alterado com sucesso"
+          },
+          "400" : {
+            "description" : "campos inválidos"
+          },
+          "409" : {
+            "description" : "autor já existe"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "autor" ],
+        "summary" : "exclusão de autor",
+        "description" : "excluir um autor no sistema",
+        "operationId" : "excluirAutor",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "idAutor",
+          "description" : "Id do Autor",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Livro"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Autor excluído com sucesso"
+          },
+          "400" : {
+            "description" : "campos inválidos"
+          }
+        }
+      }
+    },
+    "/autores/{idAutor}/livros" : {
+      "get" : {
+        "tags" : [ "autor" ],
+        "summary" : "listagem de livors a partir do autor",
+        "description" : "Listar os livros a partir do autor.\n",
+        "operationId" : "listagemAutorLivro",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "idAutor",
+          "in" : "path",
+          "description" : "Pesquisa de livors por autor",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de todos os livros pelo autor.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Autor"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/autores/{idAutor}/editoras" : {
+      "get" : {
+        "tags" : [ "autor" ],
+        "summary" : "listagem de editora a partir do autor",
+        "description" : "Listar a editora a partir do autor.\n",
+        "operationId" : "listagemAutorEditor",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "idAutor",
+          "in" : "path",
+          "description" : "informar o id do autor para buscar a editora",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de editora por autor.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Autor"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/autores/p?nome=Autor1" : {
+      "get" : {
+        "tags" : [ "autor" ],
+        "summary" : "pesquisa de autor por nome",
+        "description" : "Pesquisar o autor por nome.\n",
+        "operationId" : "pesquisaAutor",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "nome",
+          "in" : "query",
+          "description" : "informar o nome do autor que deseja pesquisar",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de editor.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Livro"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/editoras" : {
+      "get" : {
+        "tags" : [ "editora" ],
+        "summary" : "listagem de todos os editoras",
+        "description" : "Listar todos os editoras.\n",
+        "operationId" : "listagemEditoras",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de todos as editoras.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Editora"
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "editora" ],
+        "summary" : "cadastro de editora",
+        "description" : "cadastrar um editora no sistema",
+        "operationId" : "cadastroEditora",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "nome",
+          "description" : "Nome do Editora",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Editora"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Editora criada com sucesso"
+          },
+          "400" : {
+            "description" : "campos inválidos"
+          },
+          "409" : {
+            "description" : "editora já existe"
+          }
+        }
+      }
+    },
+    "/editoras/{idEditora}" : {
+      "get" : {
+        "tags" : [ "editora" ],
+        "summary" : "Pesquisa de editora pelo id",
+        "description" : "Pesquisa de editora pelo Id.\n",
+        "operationId" : "pesquisaEditoraId",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "idEditora",
+          "in" : "path",
+          "description" : "Pesquisa de editora pelo ID",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de editora pelo id.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Editora"
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "editora" ],
+        "summary" : "edição de editora",
+        "description" : "editar um editora no sistema",
+        "operationId" : "edicaoEditora",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "nome",
+          "description" : "Nome do Editora",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Editora"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Editora alterada com sucesso"
+          },
+          "400" : {
+            "description" : "campos inválidos"
+          },
+          "409" : {
+            "description" : "editora já existe"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "editora" ],
+        "summary" : "exclusão de editora",
+        "description" : "excluir um editora no sistema",
+        "operationId" : "excluirEditora",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "idEditora",
+          "description" : "Id do Editora",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Editora"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Editora excluída com sucesso"
+          },
+          "400" : {
+            "description" : "campos inválidos"
+          }
+        }
+      }
+    },
+    "/editoras/{idEditora}/livros" : {
+      "get" : {
+        "tags" : [ "editora" ],
+        "summary" : "listagem de livros a partir do editora",
+        "description" : "Listar os livros a partir da editora.\n",
+        "operationId" : "listagemEditoraLivro",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "idEditora",
+          "in" : "path",
+          "description" : "Pesquisa de livros por editora",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de todos os livros pela editora.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Editora"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/editoras/{idEditora}/autores" : {
+      "get" : {
+        "tags" : [ "editora" ],
+        "summary" : "listagem de autores a partir da editora",
+        "description" : "Listar o autor a partir da editora.\n",
+        "operationId" : "listagemEditoraAutor",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "idEditora",
+          "in" : "path",
+          "description" : "informar o id do editora para buscar os autores",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de autor por editora.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Editora"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/editoras/p?nome=Editora1" : {
+      "get" : {
+        "tags" : [ "editora" ],
+        "summary" : "pesquisa de editora por nome",
+        "description" : "Pesquisar o editora por nome.\n",
+        "operationId" : "pesquisaEditora",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "nome",
+          "in" : "query",
+          "description" : "informar o nome da editora que deseja pesquisar",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de editora.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Editora"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/clientes" : {
+      "get" : {
+        "tags" : [ "cliente" ],
+        "summary" : "listagem de todos os clientes",
+        "description" : "Listar todos os clientes.\n",
+        "operationId" : "listagemClientes",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de todos os clientes.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Cliente"
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "cliente" ],
+        "summary" : "cadastro de cliente",
+        "description" : "cadastrar um cliente no sistema",
+        "operationId" : "cadastroCliente",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "nome",
+          "description" : "Nome do cliente",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Cliente"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Cliente criado com sucesso"
+          },
+          "400" : {
+            "description" : "campos inválidos"
+          },
+          "409" : {
+            "description" : "cliente já existe"
+          }
+        }
+      }
+    },
+    "/clientes/{idCliente}" : {
+      "get" : {
+        "tags" : [ "cliente" ],
+        "summary" : "listagem de cliente por ID",
+        "description" : "Listagem de cliente por ID.\n",
+        "operationId" : "listagemClienteID",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de todos os cliente por ID.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Cliente"
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "cliente" ],
+        "summary" : "edição de cliente",
+        "description" : "editar um cliente no sistema",
+        "operationId" : "edicaoCliente",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "nome",
+          "description" : "Nome do cliente",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Cliente"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Cliente alterado com sucesso"
+          },
+          "400" : {
+            "description" : "campos inválidos"
+          },
+          "409" : {
+            "description" : "cliente já existe"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "cliente" ],
+        "summary" : "exclusão de cliente",
+        "description" : "excluir um cliente no sistema",
+        "operationId" : "excluirCliente",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "idCliente",
+          "description" : "Id do cliente",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Cliente"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Cliente excluída com sucesso"
+          },
+          "400" : {
+            "description" : "campos inválidos"
+          }
+        }
+      }
+    },
+    "/clientes/{iCliente}/pedidos" : {
+      "get" : {
+        "tags" : [ "cliente" ],
+        "summary" : "listagem de pedidos a partir do cliente",
+        "description" : "Listar os pedidos a partir do cliente.\n",
+        "operationId" : "listagemClientePedido",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "idCliente",
+          "in" : "path",
+          "description" : "Pesquisa de pedidos por cliente",
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de todos os pedidos pelo cliente.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Cliente' /clientes/p?nome=cliente1: get: tags: - cliente summary: pesquisa de cliente por nome operationId: pesquisaCliente description: | Pesquisar o cliente por nome. produces: - application/json parameters: - in: query name: nome description: informar o nome do cliente que deseja pesquisar required: false type: string responses: 200: description: Resultado de Pesquisa de cliente. schema: type: array items: $ref: "
+              }
+            }
+          }
+        }
+      }
+    },
+    "/carrinhoCompra/{idLivro}" : {
+      "post" : {
+        "tags" : [ "carrinho de compra" ],
+        "summary" : "adicionar item no carrinho de compra",
+        "description" : "adicionar um item no carrinho de compra",
+        "operationId" : "addItem",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "idLivro",
+          "description" : "ID do livro",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Carrinho"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "livro adicionado com sucesso"
+          },
+          "400" : {
+            "description" : "livro inválido"
+          },
+          "409" : {
+            "description" : "livro já existe"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "carrinho de compra" ],
+        "summary" : "remover item no carrinho de compra",
+        "description" : "remover um item no carrinho de compra",
+        "operationId" : "removeItem",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "idLivro",
+          "description" : "ID do livro",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Carrinho"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "livro removido com sucesso"
+          },
+          "400" : {
+            "description" : "livro inválido"
+          }
+        }
+      }
+    },
+    "/pedido" : {
+      "post" : {
+        "tags" : [ "pedido" ],
+        "summary" : "enviar para pagamento pedido de compra",
+        "description" : "enviar para pagamento um pedido de compra",
+        "operationId" : "enviarPedidoCompra",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "201" : {
+            "description" : "livro adicionado com sucesso"
+          },
+          "400" : {
+            "description" : "livro inválido"
+          },
+          "409" : {
+            "description" : "livro já existe"
+          }
+        }
+      }
+    },
+    "/pedido/{idPedido}" : {
+      "get" : {
+        "tags" : [ "pedido" ],
+        "summary" : "pesquisa de pedido por ID",
+        "description" : "Pesquisar Pedido por id.\n",
+        "operationId" : "pesquisaPedidoID",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "idPedido",
+          "description" : "Id de Pedido",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Pedido"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Resultado de Pesquisa de pedido por ID.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Pedido"
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "pedido" ],
+        "summary" : "cancelamento de pedido de compra",
+        "description" : "cancelamento de um pedido de compra no sistema",
+        "operationId" : "cancelamentoPedido",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "idPedido",
+          "description" : "Id do Pedido",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/Pedido"
+          }
+        } ],
+        "responses" : {
+          "201" : {
+            "description" : "Pedido cancelado com sucesso"
+          },
+          "400" : {
+            "description" : "pedido inválido"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Livro" : {
+      "type" : "object",
+      "required" : [ "autor", "editora", "id", "nome" ],
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "uuid",
+          "example" : 1
+        },
+        "nome" : {
+          "type" : "string",
+          "example" : "Livro 1"
+        },
+        "autor" : {
+          "$ref" : "#/definitions/Autor"
+        },
+        "editora" : {
+          "$ref" : "#/definitions/Editora"
+        }
+      },
+      "example" : {
+        "nome" : "Livro 1",
+        "id" : 1,
+        "editora" : {
+          "pedido" : {
+            "cliente" : {
+              "nome" : "cliente 1",
+              "id" : 1
+            },
+            "codigo" : "cod123456",
+            "situacao" : "Aberto",
+            "id" : 1
+          },
+          "nome" : "Editora 1",
+          "id" : 1
+        },
+        "autor" : {
+          "nome" : "Livro 1",
+          "id" : 1
+        }
+      }
+    },
+    "Autor" : {
+      "type" : "object",
+      "required" : [ "id", "nome" ],
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "uuid",
+          "example" : 1
+        },
+        "nome" : {
+          "type" : "string",
+          "example" : "Livro 1"
+        },
+        "livro" : {
+          "$ref" : "#/definitions/Livro"
+        }
+      },
+      "example" : {
+        "nome" : "Livro 1",
+        "id" : 1
+      }
+    },
+    "Editora" : {
+      "type" : "object",
+      "required" : [ "id", "nome" ],
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "uuid",
+          "example" : 1
+        },
+        "nome" : {
+          "type" : "string",
+          "example" : "Editora 1"
+        },
+        "pedido" : {
+          "$ref" : "#/definitions/Pedido"
+        }
+      },
+      "example" : {
+        "pedido" : {
+          "cliente" : {
+            "nome" : "cliente 1",
+            "id" : 1
+          },
+          "codigo" : "cod123456",
+          "situacao" : "Aberto",
+          "id" : 1
+        },
+        "nome" : "Editora 1",
+        "id" : 1
+      }
+    },
+    "Cliente" : {
+      "type" : "object",
+      "required" : [ "id", "nome" ],
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "uuid",
+          "example" : 1
+        },
+        "nome" : {
+          "type" : "string",
+          "example" : "cliente 1"
+        }
+      },
+      "example" : {
+        "nome" : "cliente 1",
+        "id" : 1
+      }
+    },
+    "Carrinho" : {
+      "type" : "object",
+      "properties" : {
+        "livro" : {
+          "$ref" : "#/definitions/Livro"
+        }
+      },
+      "example" : {
+        "livro" : {
+          "nome" : "Livro 1",
+          "id" : 1,
+          "editora" : {
+            "pedido" : {
+              "cliente" : {
+                "nome" : "cliente 1",
+                "id" : 1
+              },
+              "codigo" : "cod123456",
+              "situacao" : "Aberto",
+              "id" : 1
+            },
+            "nome" : "Editora 1",
+            "id" : 1
+          },
+          "autor" : {
+            "nome" : "Livro 1",
+            "id" : 1
+          }
+        }
+      }
+    },
+    "Pedido" : {
+      "type" : "object",
+      "required" : [ "codigo", "id", "situacao" ],
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "uuid",
+          "example" : 1
+        },
+        "codigo" : {
+          "type" : "string",
+          "example" : "cod123456"
+        },
+        "situacao" : {
+          "type" : "string",
+          "example" : "Aberto"
+        },
+        "cliente" : {
+          "$ref" : "#/definitions/Cliente"
+        }
+      },
+      "example" : {
+        "cliente" : {
+          "nome" : "cliente 1",
+          "id" : 1
+        },
+        "codigo" : "cod123456",
+        "situacao" : "Aberto",
+        "id" : 1
+      }
+    }
+  }
+}

@@ -11,9 +11,9 @@ exports.findAll = function () {
     });
 }
 
-exports.save = function (livro) {
+exports.save = function (autor) {
     return new Promise(function( resolve, reject ) { 
-        repository.save(livro)
+        repository.save(autor)
         .then(autores => {
             resolve(autores);
         }).catch(err => {
@@ -22,9 +22,9 @@ exports.save = function (livro) {
     });
 }
 
-exports.edit = function (livro) {
+exports.edit = function (autor) {
     return new Promise(function( resolve, reject ) { 
-        repository.edit(livro)
+        repository.edit(autor)
         .then(autores => {
             resolve(autores);
         }).catch(err => {
@@ -33,9 +33,9 @@ exports.edit = function (livro) {
     });
 }
 
-exports.delete = function (livro) {
+exports.delete = function (autor) {
     return new Promise(function( resolve, reject ) { 
-        repository.delete(livro)
+        repository.delete(autor)
         .then(autores => {
             resolve(autores);
         }).catch(err => {
@@ -43,20 +43,9 @@ exports.delete = function (livro) {
         });
     });
 }
-exports.findById = function (livro) {
+exports.findById = function (autor) {
     return new Promise(function( resolve, reject ) { 
-        repository.findById(livro)
-        .then(autores => {
-            resolve(autores);
-        }).catch(err => {
-            reject(err);
-        });
-    });
-}
-
-exports.findEditora = function () {
-    return new Promise(function( resolve, reject ) { 
-        repository.findEditora()
+        repository.findById(autor)
         .then(autores => {
             resolve(autores);
         }).catch(err => {
@@ -65,9 +54,9 @@ exports.findEditora = function () {
     });
 }
 
-exports.findLivros = function (livro) {
+exports.findEditora = function (autor) {
     return new Promise(function( resolve, reject ) { 
-        repository.findLivros(livro)
+        repository.findEditora(autor)
         .then(autores => {
             resolve(autores);
         }).catch(err => {
@@ -76,9 +65,20 @@ exports.findLivros = function (livro) {
     });
 }
 
-exports.findNome = function (livro) {
+exports.findLivros = function (autor) {
     return new Promise(function( resolve, reject ) { 
-        repository.findNome(livro)
+        repository.findLivros(autor)
+        .then(autores => {
+            resolve(autores);
+        }).catch(err => {
+            reject(err);
+        });
+    });
+}
+
+exports.findNome = function (autor) {
+    return new Promise(function( resolve, reject ) { 
+        repository.findNome(autor)
         .then(autores => {
             resolve(autores);
         }).catch(err => {

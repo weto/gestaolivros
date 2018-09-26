@@ -1,9 +1,22 @@
-[
- {
+[{
     "id": 1,
-    "nome": "Autor 1"
- }, {
-    "id": 2,
-    "nome": "Autor 2"
- }
-]
+    "nome": "Autor 1",
+    "livro": [
+        {
+            "id": 1,
+            "nome": "Livro 1"
+        }, {
+            "id": 2,
+            "nome": "Livro 2"
+        }
+    ],
+    "editora": [
+        {
+            "id": 1,
+            "nome": "Editora 1"
+        }, {
+            "id": 2,
+            "nome": "Editora 2"
+        }
+    ]
+}]

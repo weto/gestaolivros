@@ -1,97 +1,97 @@
 var promise = require("../promise/AutorApiPromise");
 
-exports.findAll = function(livro, req, res) {
+exports.findAll = function(autor, req, res) {
 	return new Promise( function(resolve, reject ) { 
-        promise.findAll(livro, req, res)
-        .then(livros => {
-            resolve(livros);
+        promise.findAll(autor, req, res)
+        .then(autors => {
+            resolve(autors);
         }).catch(err => {
             reject(err);
         });
     });
 }
 
-exports.save = function(livro, req, res) {
+exports.save = function(autor, req, res) {
 	return new Promise( function(resolve, reject ) { 
-        promise.save(livro, req, res)
-        .then(livros => {
-            resolve(livros);
+        promise.save(autor, req, res)
+        .then(autors => {
+            resolve(autors);
         }).catch(err => {
             reject(err);
         });
     });
 }
 
-exports.edit = function(livro, req, res) {
+exports.edit = function(autor, req, res) {
 	return new Promise( function(resolve, reject ) { 
-        promise.edit(livro, req, res)
-        .then(livros => {
-            resolve(livros);
+        promise.edit(autor, req, res)
+        .then(autors => {
+            resolve(autors);
         }).catch(err => {
             reject(err);
         });
     });
 }
 
-exports.delete = function(livro, req, res) {
+exports.delete = function(autor, req, res) {
 	return new Promise( function(resolve, reject ) { 
-        promise.delete(livro, req, res)
-        .then(livros => {
-            resolve(livros);
+        promise.delete(autor, req, res)
+        .then(autors => {
+            resolve(autors);
         }).catch(err => {
             reject(err);
         });
     });
 }
 
-exports.findById = function(livro, req, res) {
+exports.findById = function(autor, req, res) {
 	return new Promise( function(resolve, reject ) { 
-        promise.findById(livro, req, res)
-        .then(livros => {
-            resolve(livros);
+        promise.findById(autor, req, res)
+        .then(autors => {
+            resolve(autors);
         }).catch(err => {
             reject(err);
         });
     });
 }
-exports.findEditora = function(livro, req, res) {
+exports.findEditora = function(autor, req, res) {
 	return new Promise( function(resolve, reject ) { 
-        promise.findEditora(livro, req, res)
-        .then(livros => {
-            resolve(livros);
-        }).catch(err => {
-            reject(err);
-        });
-    });
-}
-
-exports.findAutores = function(livro, req, res) {
-	return new Promise( function(resolve, reject ) { 
-        promise.findAutores(livro, req, res)
-        .then(livros => {
-            resolve(livros);
+        promise.findEditora(autor, req, res)
+        .then(autors => {
+            resolve(autors);
         }).catch(err => {
             reject(err);
         });
     });
 }
 
-exports.findLivros = function(livro, req, res) {
+exports.findLivros = function(autor, req, res) {
 	return new Promise( function(resolve, reject ) { 
-        promise.findLivros(livro, req, res)
-        .then(livros => {
-            resolve(livros);
+        promise.findLivros(autor, req, res)
+        .then(autors => {
+            resolve(autors);
         }).catch(err => {
             reject(err);
         });
     });
 }
 
-exports.findNome = function(livro, req, res) {
+exports.findautors = function(autor, req, res) {
 	return new Promise( function(resolve, reject ) { 
-        promise.findNome(livro, req, res)
-        .then(livros => {
-            resolve(livros);
+        promise.findautors(autor, req, res)
+        .then(autors => {
+            resolve(autors);
+        }).catch(err => {
+            reject(err);
+        });
+    });
+}
+
+exports.findNome = function(autor, req, res) {
+	return new Promise( function(resolve, reject ) { 
+        promise.findNome(autor, req, res)
+        .then(autors => {
+            resolve(autors);
         }).catch(err => {
             reject(err);
         });

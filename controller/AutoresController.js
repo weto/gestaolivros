@@ -83,18 +83,7 @@ router.get('/:idAutor/livros', function (req, res) {
 router.get('/:idAutor/editoras', function (req, res) {
   service.findEditora(req.params, req, res)
   .then(autores => {
-    res.status(httpStatus.OK).json({ status: httpStatus.OK, autores: autores });
-  }).catch(err => {
-    log.info("#### ROTA / AUTOR ####");
-    log.error(err);
-    res.status(httpStatus.OK).json({ status: httpStatus.OK, message: err});
-  });
-});
-
-router.get('/:idAutor/comentarios', function (req, res) {
-  service.findComentarios(req.params, req, res)
-  .then(autores => {
-    res.status(httpStatus.OK).json({ status: httpStatus.OK, autores: autores });
+    res.status(httpStatus.OK).json({ status: httpStatus.OK, editoras: autores });
   }).catch(err => {
     log.info("#### ROTA / AUTOR ####");
     log.error(err);

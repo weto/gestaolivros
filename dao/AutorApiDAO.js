@@ -77,8 +77,8 @@ exports.findById = function(autor) {
 
 exports.findEditora = function(autor) {
 	return new Promise(function(resolve, reject) {
-		const autorReturn = gestaoLivros.find(function (autorP) { 
-			if(livroP.autor.id === parseInt(autor.idAutor)){
+		const autorReturn = gestaoAutores.find(function (autorP) {
+			if(autorP.id === parseInt(autor.idAutor)){
 				return autorP;
 			} 
 		});
@@ -92,14 +92,13 @@ exports.findEditora = function(autor) {
 
 exports.findLivros = function(autor) {
 	return new Promise(function(resolve, reject) {
-		const livro = gestaoLivros.find(function (livroP) {
-			if(livroP.autor.id === parseInt(autor.idAutor)) {
-				return livroP;
-			}
+		const autorReturn = gestaoAutores.find(function (autorP) {
+			if(autorP.id === parseInt(autor.idAutor)){
+				return autorP;
+			} 
 		});
-
-		if(livro) {
-			resolve(livro);
+		if(autorReturn){
+			resolve(autorReturn.livro);
 		}else{
 			reject('Livro não encontrado')
 		}

@@ -1,4 +1,7 @@
 # Gestão de Livros
+
+<p>Para fazer a instalação rodar o comando npm install e npm start.</p>
+
 <h3>Livro</h3>
 <ul>
   <li>GET    /livros</li>

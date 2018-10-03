@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 var i18n = require('./config/i18n')();
+var swaggerUi = require('swagger-ui-express');
+var doc = require('./doc/swagger.json');
 
 app.use(i18n.init);
 
@@ -23,5 +25,7 @@ app.use('/api/v1/carrinho', carrinho);
 
 var pedidos = require('./controller/PedidosController');
 app.use('/api/v1/pedidos', pedidos);
+
+app.use('/api/v1/doc', swaggerUi.serve, swaggerUi.setup(doc));
 
 module.exports = app;

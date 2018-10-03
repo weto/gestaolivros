@@ -1,7 +1,9 @@
 [{
     "id": 1,
     "codigo": "cod123456",
+    "valor": "5.000,00",
     "situacao": "Aberto",
+    "dataTransacao": "02/10/2018 09:00",
     "cliente": {
         "id": 1,
         "nome": "Cliente 1"
@@ -9,7 +11,9 @@
 },{
     "id": 2,
     "codigo": "cod1147852",
+    "valor": "3.000,00",
     "situacao": "Aberto",
+    "dataTransacao": "03/10/2018 10:00",
     "cliente": {
         "id": 1,
         "nome": "Cliente 2"

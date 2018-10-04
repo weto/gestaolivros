@@ -10,4 +10,4 @@ Construindo o aplicativo: Execute o comando no terminal 'npm install' e 'npm sta
 
 Quando você terminar de executar o script acima, o serviço estará disponível no endereço http://localhost:8080/api/v1.
 
-Acessando a documentação do projeto: http://localhost:8080/api/v1/doc
+Acessando a documentação do projeto: http://localhost:8080/

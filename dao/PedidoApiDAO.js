@@ -54,10 +54,13 @@ exports.pagamento = function(carrinho) {
             }
 		};
 
+		//integracao com micro servico de cartao de credito
 		autorizacaoCartaoCredito(novoPedido)
 		.then(autorizacaoReturn => {
 			return autorizacaoReturn;
 		}).then(autorizacao => {
+
+			//integracao com micro servico de auditoria
 			auditoriaTransacao(novoPedido).then(autorizacaoReturn => {
 				if(gestaoPedido.push(novoPedido)) {
 					resolve(gestaoPedido);

@@ -26,6 +26,6 @@ app.use('/api/v1/carrinho', carrinho);
 var pedidos = require('./controller/PedidosController');
 app.use('/api/v1/pedidos', pedidos);
 
-app.use('/api/v1/doc', swaggerUi.serve, swaggerUi.setup(doc));
+app.use('/', swaggerUi.serve, swaggerUi.setup(doc));
 
 module.exports = app;

@@ -54,9 +54,9 @@ exports.findById = function (livro) {
     });
 }
 
-exports.findEditora = function () {
+exports.findEditora = function (livro) {
     return new Promise(function( resolve, reject ) { 
-        repository.findEditora()
+        repository.findEditora(livro)
         .then(livros => {
             resolve(livros);
         }).catch(err => {
